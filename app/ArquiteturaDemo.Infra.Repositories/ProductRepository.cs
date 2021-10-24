@@ -9,7 +9,7 @@ namespace ArquiteturaDemo.Infra.Repositories
     {
         public IEnumerable<Product> GetByPrice(decimal price)
         {
-            return Context.Products.Where(x => x.Price == price).ToList();
+            return Context.Set<Product>().Where(x => x.Price == price).ToList();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using ArquiteturaDemo.Domain.Interfaces;
 using ArquiteturaDemo.Infra.Repositories.EF;
+using Microsoft.Practices.ServiceLocation;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -9,11 +10,18 @@ namespace ArquiteturaDemo.Infra.Repositories
 {
     public class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where TEntity : class
     {
-        protected ArquiteturaContext Context { get; private set; }
+
+        protected DbContext Context { get; private set; }
+
+        //protected ArquiteturaContext Context { get; private set; }
 
         public RepositoryBase()
         {
-            Context = new ArquiteturaContext();
+            var contextManager = ServiceLocator.Current.GetInstance<ContextManager>();
+
+            Context = contextManager.Context;
+
+            //Context = new ArquiteturaContext();
         }
         
         public void Add(TEntity obj)

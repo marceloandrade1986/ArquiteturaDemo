@@ -191,6 +191,10 @@
       <Project>{08dc2119-66cf-4ea0-ae41-95de1d63d94c}</Project>
       <Name>ArquiteturaDemo.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ArquiteturaDemo.Infra.IoC\ArquiteturaDemo.Infra.IoC.csproj">
+      <Project>{D2527DA4-AF86-42D0-8867-1266BAE251DA}</Project>
+      <Name>ArquiteturaDemo.Infra.IoC</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
