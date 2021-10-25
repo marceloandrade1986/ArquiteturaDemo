@@ -5,6 +5,7 @@ namespace ArquiteturaDemo.Infra.Repositories.EF
 {
     public class ArquiteturaContext : DbContext
     {
+        public ArquiteturaContext() : base("Default") { }  
         public DbSet<Product> Products { get; set; }
         public DbSet<Estado> Estados { get; set; }
         public DbSet<Cidade> Cidades { get; set; }
@@ -16,7 +17,6 @@ namespace ArquiteturaDemo.Infra.Repositories.EF
             modelBuilder.Configurations.Add(new EstadoMap());
             modelBuilder.Configurations.Add(new CidadeMap());
             modelBuilder.Configurations.Add(new PrevisaoClimaMap());
-
         }
 
     }
