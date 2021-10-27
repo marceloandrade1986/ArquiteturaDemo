@@ -12,6 +12,8 @@ namespace ArquiteturaDemo.Infra.IoC
             Bind(typeof(IRepositoryBase<>)).To(typeof(RepositoryBase<>));
             Bind<IProductRepository>().To<ProductRepository>();
             Bind<ICidadeRepository>().To<CidadeRepository>();
+            Bind<IEstadoRepository>().To<EstadoRepository>();
+            Bind<IPrevisaoClimaRepository>().To<PrevisaoClimaRepository>();
             Bind<IUnitOfWork>().To<UnitOfWork>();
             Bind<ContextManager>().ToSelf();
         }

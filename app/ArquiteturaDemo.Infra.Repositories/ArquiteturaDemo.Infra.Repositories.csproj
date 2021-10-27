@@ -58,23 +58,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CidadeRepository.cs" />
+    <Compile Include="EF\Repositories\CidadeRepository.cs" />
     <Compile Include="EF\ArquiteturaContext.cs" />
-    <Compile Include="EF\CidadeMap.cs" />
+    <Compile Include="EF\Maps\CidadeMap.cs" />
     <Compile Include="EF\ContextManager.cs" />
-    <Compile Include="EF\EstadoMap.cs" />
-    <Compile Include="EF\PrevisaoClimaMap.cs" />
-    <Compile Include="EF\ProductMap.cs" />
+    <Compile Include="EF\Maps\EstadoMap.cs" />
+    <Compile Include="EF\Maps\PrevisaoClimaMap.cs" />
+    <Compile Include="EF\Maps\ProductMap.cs" />
     <Compile Include="EF\UnitOfWork.cs" />
-    <Compile Include="EstadoRepository.cs" />
+    <Compile Include="EF\Repositories\EstadoRepository.cs" />
     <Compile Include="Migrations\202110250441263_Inicial.cs" />
     <Compile Include="Migrations\202110250441263_Inicial.designer.cs">
       <DependentUpon>202110250441263_Inicial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="PrevisaoClimaRepository.cs" />
-    <Compile Include="ProductRepository.cs" />
-    <Compile Include="RepositoryBase.cs" />
+    <Compile Include="EF\Repositories\PrevisaoClimaRepository.cs" />
+    <Compile Include="EF\Repositories\ProductRepository.cs" />
+    <Compile Include="EF\Repositories\RepositoryBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -92,6 +92,7 @@
       <DependentUpon>202110250441263_Inicial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

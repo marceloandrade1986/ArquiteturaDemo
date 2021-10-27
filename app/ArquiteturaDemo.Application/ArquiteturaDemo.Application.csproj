@@ -44,9 +44,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationBase.cs" />
-    <Compile Include="PrevisaoClimaApplication.cs" />
-    <Compile Include="ProductApplication.cs" />
+    <Compile Include="Apps\ApplicationBase.cs" />
+    <Compile Include="Apps\CidadeApplication.cs" />
+    <Compile Include="Apps\EstadoApplication.cs" />
+    <Compile Include="Apps\PrevisaoClimaApplication.cs" />
+    <Compile Include="Apps\ProductApplication.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

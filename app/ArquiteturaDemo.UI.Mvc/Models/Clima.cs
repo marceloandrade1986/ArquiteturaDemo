@@ -1,8 +1,6 @@
 ﻿using ArquiteturaDemo.Domain.Entities;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.Web.Mvc;
 
 namespace ArquiteturaDemo.UI.Mvc.Models
 {
@@ -11,5 +9,7 @@ namespace ArquiteturaDemo.UI.Mvc.Models
         public List<PrevisaoClima> CidadesMaisQuentes = new List<PrevisaoClima>();
         public List<PrevisaoClima> CidadesMaisFrias = new List<PrevisaoClima>();
         public List<PrevisaoClima> UltimasSetePrevisoes = new List<PrevisaoClima>();
+
+        public SelectList Cidades;
     }
 }

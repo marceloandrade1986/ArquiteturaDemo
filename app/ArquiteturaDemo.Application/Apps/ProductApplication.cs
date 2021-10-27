@@ -11,14 +11,5 @@ namespace ArquiteturaDemo.Application
         {
             _productRepository = productRepository;
         }
-        
-        public void Register(Product product) 
-        {
-            BeginTrasanction();
-
-            _productRepository.Add(product);
-
-            Commit();
-        }
     }
 }

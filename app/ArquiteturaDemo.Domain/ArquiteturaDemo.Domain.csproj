@@ -32,7 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Entities\Cidade.cs" />
-    <Compile Include="Entities\EnumClima.cs" />
+    <Compile Include="Enumerator\EnumClima.cs" />
     <Compile Include="Entities\Estado.cs" />
     <Compile Include="Entities\PrevisaoClima.cs" />
     <Compile Include="Entities\Product.cs" />
@@ -44,8 +44,6 @@
     <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Entities\Enumerator\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

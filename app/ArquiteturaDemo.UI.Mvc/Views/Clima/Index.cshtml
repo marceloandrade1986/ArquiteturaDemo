@@ -1,27 +1,53 @@
-﻿@model IEnumerable<ArquiteturaDemo.UI.Mvc.Models.Clima>
+﻿@model ArquiteturaDemo.UI.Mvc.Models.Clima
 
-@{
-    ViewBag.Title = "Index";
-}
+@{ ViewBag.Title = "Index"; }
+<div class="jumbotron">
+    <h1>Clima tempo simples</h1>
+</div>
+<div class="container">
+    <div>
+        <div class="col-md-6">
+            <ul class="list-group">
+                <li class="list-group-item active">Cidades mais quentes hoje</li>
+                @{ foreach (var item in Model.CidadesMaisQuentes)
+                    {
+        <li class="list-group-item">@item.Cidade.Nome -  Min @item.TemperaturaMinima º Max @item.TemperaturaMinima º</li> } }
 
-<h2>Index</h2>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <ul class="list-group">
+                <li class="list-group-item active">Cidades mais frias hoje</li>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
-}
+                @{ foreach (var item in Model.CidadesMaisFrias)
+                                {
+                    <li class="list-group-item">@item.Cidade.Nome -  Min @item.TemperaturaMinima º Max @item.TemperaturaMaxima º</li> } }
 
-</table>
+
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <h3>Cidade:</h3>
+        <div class="bd-example">
+            @Html.DropDownList("cidadeId", Model.Cidades)
+        </div>
+    </div>
+    <div class="col-md-12">
+        <h3>Clima para os próximos dias na cidade de :</h3>
+
+        @{ foreach (var item in Model.UltimasSetePrevisoes)
+            {
+                <div class="col-md-2">
+                    <ul class="list-group">
+
+
+                        <li class="list-group-item active">@item.DataPrevisao.ToString("dddd")</li>
+                        <li class="list-group-item">@item.Cidade.Nome Min @item.TemperaturaMinima º Max @item.TemperaturaMaxima º</li>
+                    </ul>
+                </div> 
+            } 
+         }
+    </div>
+</div>

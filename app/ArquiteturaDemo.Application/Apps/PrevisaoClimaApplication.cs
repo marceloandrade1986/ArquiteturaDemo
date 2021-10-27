@@ -11,14 +11,5 @@ namespace ArquiteturaDemo.Application
         {
             _previsaoClimaRepository = climaRepository;
         }
-
-        public void Get(PrevisaoClima previsaoClima)
-        {
-            BeginTrasanction();
-
-            _previsaoClimaRepository.Get();
-
-            Commit();
-        }
     }
 }
