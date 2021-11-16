@@ -12,13 +12,13 @@ namespace ArquiteturaDemo.UI.Mvc.Controllers
 
         private ICidadeRepository _cidadeRepository;
 
-        public ClimaController(IPrevisaoClimaRepository previsaoRepository, ICidadeRepository  cidadeRepository)
+        public ClimaController(IPrevisaoClimaRepository previsaoRepository, ICidadeRepository cidadeRepository)
         {
             _previsaoClimaRepository = previsaoRepository;
             _cidadeRepository = cidadeRepository;
         }
 
-        
+
         // GET: Clima
         [HttpGet]
         public ActionResult Index()
@@ -29,7 +29,7 @@ namespace ArquiteturaDemo.UI.Mvc.Controllers
             clima.CidadesMaisFrias = _previsaoClimaRepository.CidadesMaisFrias();
             clima.CidadesMaisQuentes = _previsaoClimaRepository.CidadesMaisQuentes();
             clima.UltimasSetePrevisoes = _previsaoClimaRepository.Previsao7dias(cidadeId);
-            clima.Cidades = new SelectList(_cidadeRepository.Get().ToList(), "Id", "Nome") ;
+            clima.Cidades = new SelectList(_cidadeRepository.Get().ToList(), "Id", "Nome");
 
             return View(clima);
         }
@@ -37,19 +37,19 @@ namespace ArquiteturaDemo.UI.Mvc.Controllers
         [HttpPost]
         public ActionResult Index(FormCollection formCollection)
         {
-            int cidadeInt =  Convert.ToInt32(formCollection["cidadeId"]);
+            int cidadeId = Convert.ToInt32(formCollection["id_cidade"]);
 
             Clima clima = new Clima();
 
             clima.CidadesMaisFrias = _previsaoClimaRepository.CidadesMaisFrias();
             clima.CidadesMaisQuentes = _previsaoClimaRepository.CidadesMaisQuentes();
-            clima.UltimasSetePrevisoes = _previsaoClimaRepository.Previsao7dias(cidadeInt);
+            clima.UltimasSetePrevisoes = _previsaoClimaRepository.Previsao7dias(cidadeId);
             clima.Cidades = new SelectList(_cidadeRepository.Get().ToList(), "Id", "Nome");
 
 
-            return View(clima);
+            return Json(clima);
         }
 
-
     }
+    
 }

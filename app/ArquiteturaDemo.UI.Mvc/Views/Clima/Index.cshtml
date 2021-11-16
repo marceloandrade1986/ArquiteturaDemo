@@ -1,6 +1,10 @@
 ﻿@model ArquiteturaDemo.UI.Mvc.Models.Clima
 
 @{ ViewBag.Title = "Index"; }
+
+<script type="text/javascript"
+        src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
 <div class="jumbotron">
     <h1>Clima tempo simples</h1>
 </div>
@@ -11,7 +15,10 @@
                 <li class="list-group-item active">Cidades mais quentes hoje</li>
                 @{ foreach (var item in Model.CidadesMaisQuentes)
                     {
-        <li class="list-group-item">@item.Cidade.Nome -  Min @item.TemperaturaMinima º Max @item.TemperaturaMinima º</li> } }
+                        <li class="list-group-item">@item.Cidade.Nome -  Min @item.TemperaturaMinima º Max @item.TemperaturaMinima º</li>
+                    } 
+                    
+                }
 
             </ul>
         </div>
@@ -21,8 +28,9 @@
 
 
                 @{ foreach (var item in Model.CidadesMaisFrias)
-                                {
-                    <li class="list-group-item">@item.Cidade.Nome -  Min @item.TemperaturaMinima º Max @item.TemperaturaMaxima º</li> } }
+                    {
+        <li class="list-group-item">@item.Cidade.Nome -  Min @item.TemperaturaMinima º Max @item.TemperaturaMaxima º</li>
+ } }
 
 
             </ul>
@@ -39,15 +47,46 @@
 
         @{ foreach (var item in Model.UltimasSetePrevisoes)
             {
-                <div class="col-md-2">
-                    <ul class="list-group">
+<div class="col-md-2">
+    <ul class="list-group">
 
 
-                        <li class="list-group-item active">@item.DataPrevisao.ToString("dddd")</li>
-                        <li class="list-group-item">@item.Cidade.Nome Min @item.TemperaturaMinima º Max @item.TemperaturaMaxima º</li>
-                    </ul>
-                </div> 
-            } 
-         }
+        <li class="list-group-item active">@item.DataPrevisao.ToString("dddd")</li>
+        <li class="list-group-item">@item.Cidade.Nome Min @item.TemperaturaMinima º Max @item.TemperaturaMaxima º</li>
+    </ul>
+</div> } }
     </div>
 </div>
+<script type = "text/javascript" > $(function () {
+     $("#cidadeId").change(function () {
+
+
+         let id_cidade = $('#cidadeId option:selected').val()
+
+         alert(id_cidade);
+
+
+         if (id_cidade != null) {
+             $.ajax({
+                 type: "POST",
+                 url: "/Clima/Index/",
+                 data: { 'id_cidade': id_cidade },
+              
+                 
+                 success: function (response) {
+
+                     console.log(response)
+                
+                },
+                failure: function(response) {
+                    alert(response.responseText);
+                },
+                 error: function (response) {
+
+                     console.log(response)
+                    alert(response.responseText);
+                }
+            });
+        }
+    });
+}); </script>
